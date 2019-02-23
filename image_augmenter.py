@@ -22,8 +22,8 @@ def augment_image_save(full_path, times=9):
     file_path = os.path.dirname(full_path)
     file_name = os.path.basename(full_path)
     file_head = file_name.split(".")[0]
-    original = load_img(full_path, target_size=(128, 128))
-    ret = [load_img(full_path, target_size=(128, 128)) for _ in range(times)]
+    original = load_img(full_path)
+    ret = [load_img(full_path) for _ in range(times)]
     ret = [img_to_array(item) for item in ret]
     images = seq.augment_images(ret)
     new_path = os.path.join(file_path, "..")
